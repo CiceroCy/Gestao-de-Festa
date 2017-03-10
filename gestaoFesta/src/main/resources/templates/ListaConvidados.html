@@ -29,26 +29,35 @@ h1 {
 		</div>
 		<div class="panel-body">
 
-			<form class="form-inline" method="POST" style="margin: 20px 0"
+			<form class="form-inline" th:method="POST" style="margin: 20px 0"
 				th:object="${convidado}" th:action="@{/convidados}">
 				<div class="form-group">
-					<input type="text" class="form-control" placeholder="Nome"
-						th:field="*{nome}"></input> <input type="text"
-						class="form-control" placeholder="Acompanhantes"
-						th:field="*{quantidadeAcompanhantes}"></input>
+					<input type="text" class="form-control" placeholder="Nome" th:field="*{nome}"></input> 
+					<input type="text" class="form-control" placeholder="Acompanhantes" th:field="*{quantidadeAcompanhantes}"></input>
 					<button type="submit" class="btn btn-primary">Adicionar</button>
 				</div>
 			</form>
 
+		<form class="form-inline"  style="margin: 20 px 0" 
+		th:object="${convidado}" th:action="@{/convidados/{id}(id=${convidado.id}}">
+				<div class="form-group"> 
+				<input type="text"
+				 class="form-control" placeholder="id" th:field="*{id}"></input> 
+				<button type="submit" class="btn btn-primary">Excluir</button>
+				</div>
+			</form> 
+
 			<table class="table">
 				<thead>
 					<tr>
+					    <th>ID Convidado</th>
 						<th>Nome</th>
 						<th>Acompanhantes</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr th:each="convidado : ${convidados}">
+					    <td th:text="${convidado.id}"></td>
 						<td th:text="${convidado.nome}"></td>
 						<td th:text="${convidado.quantidadeAcompanhantes}"></td>
 					</tr>
