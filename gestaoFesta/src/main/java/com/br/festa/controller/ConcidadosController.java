@@ -44,7 +44,7 @@ public class ConcidadosController {
 	
 	
 	/****
-	 * o thymeleaf não suporta metodos HTTP DELETE e PUT. somente POST e GET
+	 * o thymeleaf não suporta metodos HTTP DELETE e PUT. somente POST e GET 
 	 * 
 	 * */ 
 	
